@@ -1,0 +1,37 @@
+  <div class="container px-4">
+    <section class="w-100 d-flex justify-content-center">
+      <div class="w-50 my-5 p-4 rounded-3 border border-black">
+        <h2 class="title mb-4">Log in</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false})  do |f| %>
+          <%= f.error_notification :class =>"" %>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form-control border-black" }%>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <%= f.input :password,
+                          required: false,
+                          input_html: { autocomplete: "current-password", class: "form-control border-black"  } %>
+          </div>
+
+          <!-- Checkbox -->
+          <%= f.input :remember_me,
+                      input_html: { class: "form-check-input border-black" },
+                      as: :boolean if devise_mapping.rememberable?%>
+
+          <!-- Submit button -->
+          <%= f.button :submit, "Log in", :class => "btn btn-primary mb-4 w-100"%>
+
+          <!-- Simple link -->
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+    </section>
+  </div>
