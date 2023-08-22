@@ -14,7 +14,7 @@
 ## To Do
 - validacion models user
 - up date forms user
-- (+ fake seed) -
+- (+ fake seed) 
 - validacion model players
 - routes players
 - controller players (crud)

@@ -4,8 +4,9 @@ class User < ApplicationRecord
   has_many :players
   has_many :bookings
 
-  has_one_attached :photo, :banner
-  
+  has_one_attached :photo
+  has_one_attached :banner
+
   COUNTRY = %W[Brazil France]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
