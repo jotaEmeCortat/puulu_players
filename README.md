@@ -1,1 +1,7 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# ToDo
+
+- create db schema [https://kitt.lewagon.com/db/108996]
+- Configuration
+- rails generate devise User
+- rails generate devise:views
+- Navbar
