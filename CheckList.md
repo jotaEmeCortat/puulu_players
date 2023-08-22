@@ -7,19 +7,22 @@
 - rails generate devise:views
 - Navbar
 - Alert
+- model users (updated)
 - model stats
 - model booking
 - model players
+- validacion models user
+- validacion model players
+- validacion booking models
+- validation model stats
+
 
 ## To Do
-- validacion models user
 - up date forms user
-- (+ fake seed) 
-- validacion model players
+- (+ fake seed)
 - routes players
 - controller players (crud)
 - views players
-- validacion booking models
 - controller booking (crud)
 - views booking
 - view page home
