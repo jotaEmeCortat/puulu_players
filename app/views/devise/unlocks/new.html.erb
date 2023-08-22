@@ -1,0 +1,31 @@
+
+ <div class="container px-4">
+  <section class="w-100 d-flex justify-content-center">
+    <div class="my-5 p-4 rounded-3 border border-black bg-light">
+      <h2 h2 class="title mb-4">Resend unlock instructions</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+        <!-- Error input -->
+        <div class="form-outline mb-4">
+          <%= f.full_error :unlock_token
+                          input_html: { class: "form-control border-black" }%>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", class: "form-control border-black"  } %>
+        </div>
+
+        <div class="form-actions">
+          <!-- Submit button -->
+          <%= f.button :submit, "Resend unlock instructions", :class => "btn btn-primary mb-4 w-100" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+  </section>
+</div>

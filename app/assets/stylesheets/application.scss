@@ -1,12 +1,21 @@
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+@import 'config/fonts';
+@import 'config/colors';
+@import 'config/bootstrap_variables';
 
 // External libraries
-@import "bootstrap";
-@import "font-awesome";
+@import 'bootstrap';
+@import 'font-awesome';
 
 // Your CSS partials
-@import "components/index";
-@import "pages/index";
+@import 'components/index';
+@import 'pages/index';
+
+.banner {
+  background-size: cover;
+  background-position: center;
+}
+
+body{
+  height: 100vh;
+}

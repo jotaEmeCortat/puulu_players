@@ -1,0 +1,35 @@
+  <div class="container px-4">
+    <section class="w-100 d-flex justify-content-center">
+      <div class="w-50 my-5 p-4 rounded-3 border border-black">
+        <h2 class="title mb-4">Sign up</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+          <%= f.error_notification %>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form-control border-black" }%>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password", class: "form-control border-black"  } %>
+          </div>
+
+          <!-- Submit button -->
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", :class => "btn btn-primary mb-4 w-100" %>
+          </div>
+
+          <!-- Simple link -->
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+    </section>
+  </div>
