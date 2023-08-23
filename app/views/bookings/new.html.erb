@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-med-8">
       <div class="booking-form-title">
-        <h3><%= current_user.name %>, book the beautiful <%= @player.name %>!</h3>
+        <h3><%= current_user.name %>, book the beautiful <%= @player.player_name %>!</h3>
       </div>
       <div class="booking-form-new">
         <%= simple_form_for [@player, @booking] do |f| %>

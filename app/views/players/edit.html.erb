@@ -1,0 +1,22 @@
+﻿<div class="container">
+  <%= simple_form_for [@player] do |f| %>
+  <%= f.input :player_name %>
+  <%= f.input :player_email %>
+  <%= f.input :player_nationality %>
+  <%= f.input :player_gender %>
+  <%= f.input :player_description, as: :text %>
+  <%= f.input :player_date_of_birth %>
+  <%= f.input :player_position %>
+  <%= f.input :player_role %>
+  <%= f.input :player_handedness %>
+  <%= f.input :player_social %>
+  <%= f.input :player_avatar_image, as: :file %>
+  <%= f.input :player_banner_image, as: :file %>
+  <%= f.input :player_availability %>
+  <%= f.input :player_availability_period %>
+  <%= f.input :player_rating %>
+  <%= f.input :player_price %>
+
+  <%= f.submit "Update Player", class: 'btn btn-primary' %>
+  <% end %>
+</div>

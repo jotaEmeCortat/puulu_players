@@ -1,0 +1,40 @@
+﻿
+<div class ="">
+  <%= form_tag players_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "",
+    placeholder: "Find a player"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary form" %>
+  <% end %>
+</div>
+
+<div class="">
+  <div class="cards">
+
+      <% @players.each do |player| %>
+          <div class="">
+            <%= cl_image_tag player.player_avatar_image %>
+            <div class="">
+              <div>
+                <h2><%= link_to player.player_name, player_path(player) %></h2>
+                <p><%= player.player_nationality%> - <em><%= player.player_description%></em>  </p>
+              </div>
+              <h2 class=""><%= player.player_price %>€/Day</h2>
+            </div>
+          </div>
+      <% end %>
+
+  </div>
+
+
+    <div
+      data-controller="map"
+      style="width: 50%; height: 600px;"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
+    </div>
+
+</div>
