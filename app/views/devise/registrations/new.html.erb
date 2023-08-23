@@ -1,59 +1,73 @@
-  <div class="container px-4">
-    <section class="w-100 d-flex justify-content-center">
-      <div class="w-50 my-5 p-4 rounded-3 border border-black">
-        <h2 class="title mb-4">Sign up</h2>
+<div class="p-5 my-3 bg-light">
+  <h1 class="display-4">Your Account</h1>
+</div>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name))  do |f| %>
-          <%= f.error_notification %>
+<div class="container">
+  <%= simple_form_for(resource, as: resource_name, url:     registration_path(resource_name))  do |f| %>
+    <%= f.error_notification %>
 
-          <!-- Name input -->
-          <div class="form-outline mb-4">
-            <%= f.input :team_name,
-                        required: true,
+    <h3 class="bg-light py-2 px-3 mb-4">Creating a new account</h3>
+
+    <div class="row justify-content-center">
+      <div class="col-6">
+
+        <!-- Name input -->
+        <div class="mb-3">
+          <%= f.input :team_name,
+                      placeholder: "Team name",
+                      required: true,
+                      autofocus: true%>
+        </div>
+
+
+        <!-- Email input -->
+        <div class="mb-3">
+          <%= f.input :email,
+                        placeholder: "Email Address",
+                        required: false,
                         autofocus: true,
-                        input_html: { class: "form-control border-black" }%>
-          </div>
+                        input_html: { autocomplete: "email"}%>
+        </div>
 
-          <!-- Badge image input -->
-          <div class="form-outline mb-4">
-            <%= f.input :team_badge_image, as: :file,
-                required: true,
-                input_html: { class: "form-control border-black" }%>
-          </div>
+        <!-- Password input -->
+        <div class="mb-3">
+          <%= f.input :password,
+                    placeholder: "Password",
+                    required: false,
+                    input_html: { autocomplete: "current-password"}%>
+        </div>
 
-          <!-- Country image input -->
-          <div class="form-outline mb-4">
-            <%= f.input  :team_country,
+        <!-- Country image input -->
+        <div class="mb-3">
+          <%= f.input  :team_country,
                           collection: User::COUNTRY,
                           required: true,
-                          autofocus: true,
-                          input_html: { class: "form-control border-black" }%>
-          </div>
+                          autofocus: true%>
+        </div>
 
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email", class: "form-control border-black" }%>
-          </div>
+        <!-- Badge image input -->
+        <div class="mb-3">
+          <%= f.input :team_badge_image, as: :file,
+                          placeholder: "Team badge",
+                          required: true%>
+        </div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password", class: "form-control border-black" } %>
-          </div>
+        <!-- Banner image input -->
+        <div class="mb-3">
+          <%= f.input :team_banner_image, as: :file,
+                      placeholder: "Team badge",
+                      required: true%>
+        </div>
 
-          <!-- Submit button -->
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up", :class => "btn btn-primary mb-4 w-100" %>
-          </div>
+        <!-- Banner image input -->
+        <div class="mb-3">
+          <%= f.input :team_description, as: :text,
+                      placeholder: "Team badge",
+                      required: true%>
+        </div>
 
-          <!-- Simple link -->
-          <%= render "devise/shared/links" %>
-        <% end %>
-      </div>
-    </section>
-  </div>
+        <!-- Submit button -->
+        <%= f.button :submit, "Sign in", :class => "btn btn-primary w-50"%>
+    </div>
+  <% end %>
+</div>
