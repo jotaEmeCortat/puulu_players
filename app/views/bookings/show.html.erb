@@ -1,7 +1,7 @@
-﻿<div class="booking-show-container">
+﻿<div class="container">
   <% days = @booking.end_date.day - @booking.start_date.day %>
   <h3>Confirmed: <%= days %> days on <%= @booking.player.player_name %></h3>
-  <div class="booking-show-status">
+  <div class="">
     <p>Booked by <%= @booking.user.team_name %><%= @booking.created_at.strftime(" on %m/%d/%Y") %> <%= @booking.created_at.strftime("at %I:%M%p") %></p>
     <% if @booking.status == 'confirmed' %>
       <p><b>ACCEPTED</b></p>
@@ -9,14 +9,14 @@
       <p><b>BOOKED!</b></p>
     <% end %>
   </div>
-  <div class="booking-show-boxes">
-    <div class="booking-details">
-      <div class="booking-confirm-date-range">
-        <div class="booking-confirm-arrival">
+  <div class="">
+    <div class="">
+      <div class="">
+        <div class="">
           <p>Start Date:</p>
           <p><%= @booking.start_date.strftime("%m/%d/%Y") %></p>
         </div>
-        <div class="booking-confirm-departure">
+        <div class="">
           <p>Bye Bye Date:</p>
           <p><%= @booking.end_date.strftime("%m/%d/%Y") %></p>
         </div>
@@ -24,20 +24,20 @@
       <div style="margin-top: 25px; margin-bottom:25px">
         <hr>
       </div>
-      <div class="booking-show-description">
+      <div class="">
         <p><%= @booking.player.player_description %></p>
       </div>
       <div style="margin-top: 25px; margin-bottom:25px">
         <hr>
       </div>
-      <div class="booking-show-host-info">
+      <div class="">
         <p>Hosted by <%= @booking.player.user.team_name %></p>
-        <p>E-mail: <%= @booking.player.user.team_email %></p>
+        <p>E-mail: <%= @booking.player.user.email %></p>
       </div>
     </div>
-      <div class="booking-costs">
+      <div class="">
       <h4>Charges:</h4>
-        <div class="booking-total-price">
+        <div class="">
           <p>EUR <%= @booking.player.player_price %> x <%= days %> days</p>
           <% total = @booking.player.player_price * days %>
           <p><b>EUR <%= total %></b></p>
@@ -46,10 +46,10 @@
     </div>
     <% if current_user == @booking.user %>
       <%= link_to "Edit", edit_booking_path(@booking), class: 'btn btn-primary' %>
-      <%= link_to "Cancel", booking_path(@booking), class: 'btn btn-primary',
+      <%= link_to "Cancel", booking_path(@booking), class: 'btn btn-outline-danger',
       data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
       <% elsif current_user == @booking.player.user %>
-      <%= link_to "Cancel the booking", booking_path(@booking), class: 'btn btn-primary',
+      <%= link_to "Cancel the booking", booking_path(@booking), class: 'btn btn-outline-danger',
       data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
       <% end %>
         <%= link_to "Dashboard", dashboard_path, class: 'btn btn-info' %>
