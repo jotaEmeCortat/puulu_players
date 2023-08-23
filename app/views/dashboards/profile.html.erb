@@ -1,1 +1,48 @@
-<h1>DASHBOARD</h1>
+<div class="p-5 my-3 bg-light">
+  <h1 class="display-4"><%= @user.team_name %></h1>
+</div>
+
+<div class="container">
+  <div class="row gap-4">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item  d-flex justify-content-between">
+        <%= link_to "Booking" , bookings_path, class:"d-flex justify-content-between"%>
+        <i class="fa-solid fa-arrow-right" style="color: #000000;"></i>
+
+        </li>
+        <li class="list-group-item"><a href="" class="d-flex justify-content-between">Squad <span><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></span></a></li>
+        <li class="list-group-item"><a href="" class="d-flex justify-content-between">New player<span><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></span></a></li>
+      </ul>
+
+
+
+
+    </div>
+
+    <div class="col-lg-8">
+      <h3>history</h3>
+      <div class="border p-2">
+      <% @players.each do |player| %>
+        <table class="table">
+          <thead>
+              <th scope="col">Player</th>
+              <th scope="col">Transfer Type</th>
+              <th scope="col">Club</th>
+              <th scope="col">Full Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= player.player_name %></td>
+              <td>Transfer Out</td>
+              <td>Free Agent</td>
+              <td class="d-flex gap-2 align-items-center">Details<i class="fa-solid fa-up-right-from-square" style="color: #000000;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
