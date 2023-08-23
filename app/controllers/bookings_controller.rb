@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.player = Player.find(params[:player_id])
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking), notice: 'Booking successful'
+      redirect_to booking_path(@booking), status: :unprocessable_entity, notice: 'Booking successful'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
+      redirect_to booking_path(@booking), status: :unprocessable_entity, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
