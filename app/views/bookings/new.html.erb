@@ -1,10 +1,10 @@
-﻿<div class="booking-form-container">
+﻿<div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-med-8">
-      <div class="booking-form-title">
-        <h3><%= current_user.name %>, book the beautiful <%= @player.player_name %>!</h3>
+      <div class="">
+        <h3><%= current_user.team_name %>, book the beautiful <%= @player.player_name %>!</h3>
       </div>
-      <div class="booking-form-new">
+      <div class="form">
         <%= simple_form_for [@player, @booking] do |f| %>
           <%= f.input :start_date, label: "Starting Date", as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.input :end_date, label: "Bye Bye Date", as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -15,7 +15,7 @@
         <hr>
       </div>
       <div class="booking-show-host-info">
-        <p>Hosted by <%= link_to @player.user.team_name, profile_path(@player.user) %></p>
+        <p>Hosted by <%= link_to @player.user.team_name, dashboard_path(@player.user) %></p>
       </div>
     </div>
   </div>
