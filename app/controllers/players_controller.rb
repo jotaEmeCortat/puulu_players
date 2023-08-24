@@ -5,19 +5,16 @@ class PlayersController < ApplicationController
     @players = Player.all
     # @players = Player.geocoded
 
-    # @markers = @players.map do |player|
-    #   {
-    #     lat: player.latitude,
-    #     lng: player.longitude,
-    #     infoWindow: render_to_string(partial: "info_window", locals: { player: player })
-    #   }
-    # end
+    @markers = @players.map do |player|
+      {
+        lat: player.latitude,
+        lng: player.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { player: player })
+      }
+    end
+
     # if params[:query].present?
-    #   sql_query =
-    #     " players.name @@ :query \
-    #     OR players.description @@ :query \
-    #     "
-    #   @players = Player.where(sql_query, query: "%#{params[:query]}%")
+    #   @players = Player.search_player("#{params[:query]}")
     #   policy_scope(@players)
     # else
     #   @players = policy_scope(Player).order(created_at: :desc)
@@ -48,7 +45,18 @@ class PlayersController < ApplicationController
     # the user, who creates the player is the owner of that player:
     @player.user = current_user
     if @player.save!
-      redirect_to player_path(@player), status: :unprocessable_entity, notice: 'Player was successfully added.'
+      # Process the nationality using Geocoder
+      location = Geocoder.search(@player.player_nationality).first
+      if location
+        @player.latitude = location.latitude
+        @player.longitude = location.longitude
+        @player.save!
+
+        redirect_to player_path(@player), status: :unprocessable_entity, notice: 'Player was successfully added.'
+      else
+        flash.now[:alert] = 'Unable to find location for the provided nationality.'
+        render :new
+      end
     else
       render :new, status: :unprocessable_entity
     end

@@ -16,6 +16,7 @@
       <% @players.each do |player| %>
           <div class="">
             <%= cl_image_tag player.player_avatar_image %>
+            <%= cl_image_tag player.player_banner_image %>
             <div class="">
               <div>
                 <h2><%= link_to player.player_name, player_path(player) %></h2>
@@ -28,13 +29,9 @@
 
   </div>
 
-
-    <div
+    <div style="width: 50%; height: 600px;"
       data-controller="map"
-      style="width: 50%; height: 600px;"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    >
-    </div>
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>
