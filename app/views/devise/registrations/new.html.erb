@@ -1,73 +1,72 @@
-<div class="p-5 my-3 bg-light">
-  <h1 class="display-4">Your Account</h1>
+<div class="pageHero">
+  <div class="wrapper">
+    <h1 class="pageTitle">Your Account</h1>
+  </div>
 </div>
 
-<div class="container">
-  <%= simple_form_for(resource, as: resource_name, url:     registration_path(resource_name))  do |f| %>
+<div class="my_container">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+  input_html: { class: "form__login-box"})  do |f| %>
+
     <%= f.error_notification %>
 
-    <h3 class="bg-light py-2 px-3 mb-4">Creating a new account</h3>
+    <div class="wrapper">
+      <h1>Creating a new account</h1>
 
-    <div class="row justify-content-center">
-      <div class="col-6">
-
+      <div class="InnerWrapper">
         <!-- Name input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input :team_name,
                       placeholder: "Team name",
                       required: true,
                       autofocus: true%>
         </div>
 
-
         <!-- Email input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input :email,
-                        placeholder: "Email Address",
-                        required: false,
-                        autofocus: true,
-                        input_html: { autocomplete: "email"}%>
+                      placeholder: "Email Address",
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email"}%>
         </div>
 
         <!-- Password input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input :password,
-                    placeholder: "Password",
-                    required: false,
-                    input_html: { autocomplete: "current-password"}%>
+                      placeholder: "Password",
+                      required: false,
+                      input_html: { autocomplete: "current-password"}%>
         </div>
 
         <!-- Country image input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input  :team_country,
-                          collection: User::COUNTRY,
-                          required: true,
-                          autofocus: true%>
+                        collection: User::COUNTRY,
+                        required: true,
+                        autofocus: true,
+                        prompt: 'Select a country'%>
         </div>
 
         <!-- Badge image input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input :team_badge_image, as: :file,
-                          placeholder: "Team badge",
-                          required: true%>
+                      placeholder: "Team badge",
+                      required: true%>
         </div>
 
         <!-- Banner image input -->
-        <div class="mb-3">
+        <div class="form__group">
           <%= f.input :team_banner_image, as: :file,
                       placeholder: "Team badge",
                       required: true%>
         </div>
 
-        <!-- Banner image input -->
-        <div class="mb-3">
-          <%= f.input :team_description, as: :text,
-                      placeholder: "Team badge",
-                      required: true%>
-        </div>
-
         <!-- Submit button -->
-        <%= f.button :submit, "Sign in", :class => "btn btn-primary w-50"%>
+        <div class="buttonWrap">
+          <%= f.button :submit, "Sign in", :class => "btn btn-primary"%>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

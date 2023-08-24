@@ -10,3 +10,368 @@
 // Your CSS partials
 @import 'components/index';
 @import 'pages/index';
+
+html {
+  font-size: 62.5% !important;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+p {
+  line-height: 1.6;
+  color: #242424;
+}
+
+::selection {
+  background: #ff2882;
+  color: #fff;
+}
+
+.pageHero {
+  background-color: #37003c;
+  margin-top: -2rem;
+  background-image: url(https://users.premierleague.com/static/libsass/plusers/dist/pulselive/i/bg-elements/heading-bg-desktop.svg);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  margin-bottom: 4rem;
+  padding: 7rem 0 5.2rem;
+  /* position: relative; */
+
+  @media (max-width: 56.25em) {
+    padding: 4rem 0 2rem;
+    background-image: url(https://users.premierleague.com/static/libsass/plusers/dist/pulselive/i/bg-elements/heading-bg-mobile.svg);
+  }
+
+  @media (max-width: 43.75em) {
+    background-size: auto 10rem;
+    background-position: right top;
+  }
+
+  @media (max-width: 43.75em) {
+    margin-bottom: 2rem;
+  }
+}
+
+.wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+  @media (max-width: 43.75em) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.InnerWrapper {
+  padding: 0px 5%;
+
+  @media (min-width: 43.75em) {
+    padding: 0px 12%;
+  }
+
+  @media (min-width: 56.25em) {
+    padding: 0px 18%;
+  }
+}
+
+.pageTitle {
+  color: #fff;
+  /* float: left; */
+  max-width: 70%;
+  font-weight: bold;
+  font-size: 7.6rem;
+  line-height: 9.1rem;
+
+  @media (max-width: 43.75em) {
+    font-size: 3rem;
+    line-height: 4.5rem;
+  }
+}
+
+.my_container {
+  max-width: 1220px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.simple_form {
+  max-width: 960px;
+  margin: 0 auto;
+
+  @media (max-width: 63.9375em) {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+[class*='col-'] {
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[class^='col-6'] {
+  width: calc(6 / 12 * 100%);
+}
+
+@media (max-width: 63.9375em) {
+  [class*='col-'] {
+    width: 100%;
+  }
+}
+
+.simple_form h1 {
+  background-color: #e90052;
+  color: #fff;
+  margin: 0 -2rem 3.5rem -2rem;
+  padding: 1rem 2rem;
+  font-weight: normal;
+  font-size: 1.8rem;
+}
+
+.form__group {
+  margin-bottom: 3rem;
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  float: left;
+  font-weight: normal;
+  width: 30%;
+  font-weight: bold;
+
+  @media (max-width: 43.75em) {
+    margin-bottom: 0.8em;
+    width: 100%;
+  }
+}
+
+.form-control {
+  display: block;
+  border: 1px solid rgb(118, 118, 111);
+  font-size: 16px;
+  padding: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(232, 232, 232);
+}
+
+.form-control[type='file'],
+.form-select {
+  display: block;
+  border: 1px solid rgb(118, 118, 111);
+  font-size: 16px;
+  padding: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.form-select {
+  background-image: url('arrow.svg');
+}
+
+.form-select:focus {
+  background: #fff;
+  border: 2px solid #242424;
+  box-shadow: none;
+}
+
+[type='text']:focus,
+[type='email']:focus,
+[type='password']:focus,
+[type='select']:focus {
+  background: #fff;
+  border: 2px solid #242424;
+  box-shadow: none;
+}
+
+.link__login {
+  position: relative;
+  top: 12px;
+
+  color: #e90052;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+form [type='submit'] {
+  border: none;
+}
+
+.simple_form [type='submit'] {
+  margin-top: 0;
+}
+
+.reg-spacer {
+  background-color: #e4e4e4;
+  margin-bottom: 2rem;
+  padding: 25px;
+  display: inline-block;
+  width: 100%;
+
+  @media (max-width: 43.75em) {
+    margin-bottom: 3.5rem;
+  }
+}
+
+.reg-spacer h2 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  font-weight: bolder;
+
+  @media (max-width: 43.75em) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.reg-spacer p {
+  margin-bottom: 25px;
+}
+
+.ism .ism-button--full {
+  display: block;
+  width: 100%;
+}
+
+/* .btn {
+  margin-top: 25px;
+} */
+
+.or {
+  width: 75%;
+  margin: 0 auto 25px auto;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.or span {
+  background: #fff;
+  padding: 7px;
+  position: relative;
+  top: 7px;
+}
+
+.social-login {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0 3rem 0;
+}
+
+.social-login .btn {
+  width: calc(50% - 5px);
+  display: inline-block;
+  margin-bottom: 10px;
+
+  @media (max-width: 43.75em) {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
+
+.social-login img {
+  margin-right: 7px;
+}
+
+.buttonWrap {
+  @media (min-width: 43.75em) {
+    margin-right: 30%;
+    margin-left: 30%;
+  }
+}
+
+/* .apple-button,
+.facebook-button,
+.twitter-button,
+.google-button {
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 4.4rem;
+} */
+
+.facebook-button {
+  background-color: #1877f2;
+  color: #fff;
+
+  &:hover {
+    background-color: #1877f2;
+    color: #fff;
+  }
+}
+
+.twitter-button {
+  background-color: #00aced;
+  color: #fff;
+
+  &:hover {
+    background-color: #00aced;
+    color: #fff;
+  }
+}
+
+.google-button {
+  color: #37003c;
+  background-color: white;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background-color: white;
+    color: #37003c;
+  }
+}
+
+.apple-button {
+  background-color: #000;
+  color: #fff;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.centered h2,
+.centered h1 {
+  margin: 3rem 0;
+}
+
+.centered p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family: 'PremierSans-Bold', Arial, 'Helvetica Neue', Helvetica,
+    sans-serif; */
+  font-weight: bold;
+}
+
+p {
+  line-height: 1.6;
+  color: #242424;
+}
