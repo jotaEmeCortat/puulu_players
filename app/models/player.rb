@@ -8,4 +8,11 @@ class Player < ApplicationRecord
   # geocoded_by :player_nationality
   # after_validation :geocode, if: :will_save_change_to_location?
 
+  include PgSearch::Model
+  pg_search_scope :search_player,
+    against: [ :player_name, :player_role, :player_position ],
+    using: {
+      tsearch: { prefix: true }
+  }
+
 end
