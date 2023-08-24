@@ -1,13 +1,15 @@
 ﻿
-<div class ="">
-  <%= form_tag players_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "",
-    placeholder: "Find a player"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary form" %>
-  <% end %>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: players_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a player's name, role or position"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="">
@@ -16,6 +18,7 @@
       <% @players.each do |player| %>
           <div class="">
             <%= cl_image_tag player.player_avatar_image %>
+            <%= cl_image_tag player.player_banner_image %>
             <div class="">
               <div>
                 <h2><%= link_to player.player_name, player_path(player) %></h2>
@@ -28,13 +31,9 @@
 
   </div>
 
-
-    <div
+    <div style="width: 50%; height: 600px;"
       data-controller="map"
-      style="width: 50%; height: 600px;"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    >
-    </div>
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>

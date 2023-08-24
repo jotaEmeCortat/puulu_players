@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :banner
 
-  COUNTRY = %W[Brazil France]
+  COUNTRY = %W[Algeria Brazil France]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
