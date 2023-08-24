@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_24_103446) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_155314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,10 +91,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_103446) do
     t.integer "exclusion_conceded"
     t.integer "exclusion_success"
     t.integer "ratio"
-    t.bigint "players_id", null: false
+    t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["players_id"], name: "index_stats_on_players_id"
+    t.index ["player_id"], name: "index_stats_on_player_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,5 +120,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_103446) do
   add_foreign_key "bookings", "players"
   add_foreign_key "bookings", "users"
   add_foreign_key "players", "users"
-  add_foreign_key "stats", "players", column: "players_id"
+  add_foreign_key "stats", "players"
 end
