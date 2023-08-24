@@ -6,8 +6,8 @@
       </div>
       <div class="form">
         <%= simple_form_for [@player, @booking] do |f| %>
-          <%= f.input :start_date, label: "Starting Date", as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, label: "Bye Bye Date", as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :start_date, label: "Starting Date", as: :string, input_html: { data: { controller: "datepicker" }} %>
+          <%= f.input :end_date, label: "Bye Bye Date", as: :string, required: false, input_html: { data: { controller: "datepicker" }} %>
           <%= f.submit "Book!", class: "btn btn-primary" %>
         <% end %>
       </div>
