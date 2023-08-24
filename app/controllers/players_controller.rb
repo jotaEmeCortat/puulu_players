@@ -3,6 +3,9 @@ class PlayersController < ApplicationController
 
   def index
     @players = Player.all
+    if params[:query].present?
+      @players = Player.search_player("#{params[:query]}")
+    end
     # @players = Player.geocoded
 
     @markers = @players.map do |player|
