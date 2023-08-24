@@ -37,7 +37,24 @@ end
     player_availability: "#{["1 Week", "2 Weeks", "3 Weeks", "1 Month", "6 Months", "Whole Season"].sample}",
     player_rating: rand(1..10),
     player_price: rand(1_000..50_000),
-    user: User.first
+    user: User.sample
   )
   player.save!
+end
+
+10.times do
+  stat = Stat.new(
+    height: Faker::Measurement.metric_height,
+    weight: Faker::Measurement.metric_weight,
+    appearances: rand(1..500),
+    goal_accuracy: Faker::Number.within(range: 0.0..1.0),
+    goal_5m: rand(1..500),
+    goal_h_plus: rand(1..500),
+    goal_save: rand(1..500),
+    exclusion_conceded: rand(1..500),
+    exclusion_success: rand(1..500),
+    ratio: Faker::Number.within(range: 0.0..1.0),
+    player: Player.sample
+  )
+  stat.save!
 end
