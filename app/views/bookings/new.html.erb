@@ -1,10 +1,9 @@
-﻿<div class="container">
-  <div class="row justify-content-center">
+﻿  <div class="row justify-content-center">
     <div class="col-12 col-med-8">
-      <div class="">
+      <div class="booking-form-title">
         <h3><%= current_user.team_name %>, book the beautiful <%= @player.player_name %>!</h3>
       </div>
-      <div id='player-booking-dates' data-unavailable="<%= @player.unavailable_dates.to_json %>" class="form">
+      <div id='player-booking-dates' data-unavailable="<%= @player.unavailable_dates.to_json %>" class="booking-form-new">
         <%= simple_form_for [@player, @booking] do |f| %>
           <%= f.input :start_date, label: "Starting Date", as: :string, required: false, input_html: { data: { controller: "datepicker" }} %>
           <%= f.input :end_date, label: "Ending Date", as: :string, required: false, input_html: { data: { controller: "datepicker" }} %>
@@ -14,9 +13,8 @@
       <div style="margin-top: 25px; margin-bottom:25px">
         <hr>
       </div>
-      <div class="booking-show-host-info">
-        <p>Hosted by <%= link_to @player.user.team_nam, dashboard_path(@player.user) %></p>
+      <div class="booking_show_host_info">
+        <p>Hosted by <%= link_to @player.user.team_name, dashboard_path(@player.user) %></p>
       </div>
     </div>
   </div>
-</div>

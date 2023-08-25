@@ -9,32 +9,29 @@
   <p>Choose your next best player</p>
 </div>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: players_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a player's name, role or position"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<div class="search-form-control form-group">
+  <%= form_with url: players_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type a player's name, role or position"
+      %>
+    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
-<div class="row justify-content-center">
+<div class="cards-and-map">
   <div class="cards">
 
       <% @players.each do |player| %>
-          <div class="">
+          <div class="card-player">
             <%= cl_image_tag player.player_avatar_image %>
-            <%= cl_image_tag player.player_banner_image %>
-            <div class="">
+            <div class="card-player-infos">
               <div>
                 <h2><%= link_to player.player_name, player_path(player) %></h2>
                 <p><%= player.player_nationality%> - <em><%= player.player_description%></em>  </p>
               </div>
-              <h2 class=""><%= player.player_price %>€/Day</h2>
+              <h2 class="price"><%= player.player_price %>€/Day</h2>
             </div>
           </div>
       <% end %>

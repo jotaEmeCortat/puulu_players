@@ -1,15 +1,16 @@
-<div class="banner" style="background-image: url(<%= cl_image_path ""
- %>)">
-  <div class="home-container">
-    <h2>PUULUUUUUUUUUUUUU <span id="banner-typed-text"></span></h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1523674434576-d0ea2130aa9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2669&q=80);">
+  <div class="container">
+    <h1>Find your best player <%= link_to "now", players_path, class: "now-button" %> !</h1>
     <br>
-    <%= form_tag players_path, class: "index-search", method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control", id: "home-search-bar",
-        placeholder: "Find your new top level player!"
-      %>
-      <%= submit_tag "FIND!", class: "btn btn-index-search", id: "home-search" %>
-    <% end %>
+    <div class ="search-control form-group">
+      <%= form_tag players_path, class: "index-search", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control", id: "home-search-bar",
+          placeholder: "Find your new top level player!"
+        %>
+        <%= submit_tag "FIND!", class: "btn btn-primary form", id: "home-search" %>
+      <% end %>
+      </div>
   </div>
 </div>
