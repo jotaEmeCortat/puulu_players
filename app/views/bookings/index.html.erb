@@ -2,7 +2,7 @@
 <div class="cards">
   <% @bookings.each do |booking| %>
       <div class="card_player">
-        <%= cl_image_tag booking.player.player_avatar_image %>
+        <%= cl_image_tag booking.player.avatar.key %>
         <div class="card_player_infos">
           <div>
             <h2><%= link_to booking.player.player_name, player_bookings_path(booking.player, booking) %></h2>

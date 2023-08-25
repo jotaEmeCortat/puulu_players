@@ -25,7 +25,7 @@
 
       <% @players.each do |player| %>
           <div class="card-player">
-            <%= cl_image_tag player.player_avatar_image %>
+            <%= cl_image_tag player.avatar.key %>
             <div class="card-player-infos">
               <div>
                 <h2><%= link_to player.player_name, player_path(player) %></h2>
