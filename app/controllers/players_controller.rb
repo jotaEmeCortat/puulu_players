@@ -70,6 +70,6 @@ class PlayersController < ApplicationController
                                     :player_position, :player_role, :player_handedness,
                                     :player_social, :player_avatar_image, :player_banner_image,
                                     :player_availability, :player_availability_period,
-                                    :player_rating, :player_price)
+                                    :player_rating, :player_price, :avatar)
   end
 end

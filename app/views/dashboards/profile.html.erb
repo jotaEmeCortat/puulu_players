@@ -3,7 +3,7 @@
   <div class="col-sm-6">
     <div class="card-dashboard-user-profile">
       <div class="dash-user-pic">
-        <%= cl_image_tag current_user.team_badge_image, class:"dash-img" %>
+        <%= cl_image_tag current_user.photo.key, class:"dash-img" %>
       </div>
       <div class="dash-user-profile">
         <h2><%= current_user.team_name %></h2>
@@ -19,7 +19,7 @@
     <div class="row">
         <% @bookings.each do |booking| %>
           <div class="dashboard-card-product">
-            <%= cl_image_tag booking.player.player_avatar_image %>
+            <%= cl_image_tag booking.player.avatar.key %>
             <div class="card-product-infos">
               <h4> <%= link_to booking.player.player_name, booking_path(booking) %> </h4>
               <p>From <em><%= booking.start_date.strftime(" %m/%d/%Y") %></em> to <em><%=booking.end_date.strftime(" %m/%d/%Y") %></em></p>
@@ -35,7 +35,7 @@
     <div class="row">
       <% @players.each do |player| %>
       <div class="dashboard-card-product">
-          <%= cl_image_tag player.player_avatar_image %>
+          <%= cl_image_tag player.avatar.key %>
           <div class="card-product-infos">
               <h4> <%= link_to player.player_name, player_path(player) %> </h4>
               <p> <%= player.player_description.first(20)... %> </p>
