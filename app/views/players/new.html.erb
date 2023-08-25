@@ -6,7 +6,7 @@
     <%= f.input :player_nationality %>
     <%= f.input :player_gender %>
     <%= f.input :player_description, as: :text %>
-    <%= f.input :player_date_of_birth %>
+    <%= f.input :player_date_of_birth, as: :string, required: false, input_html: { data: { controller: "datepicker" }} %>
     <%= f.input :player_position %>
     <%= f.input :player_role %>
     <%= f.input :player_handedness %>
@@ -19,7 +19,7 @@
     <%# <%= f.input :player_banner_image_cache, as: :hidden %>
     <%# https://stackoverflow.com/questions/52236887/customize-image-upload-field-in-simple-form-carrierwave %>
     <%= f.input :player_availability %>
-    <%= f.input :player_availability_period %>
+    <%= f.input :player_availability_period, as: :string, required: false, input_html: { data: { controller: "datepicker" }} %>
     <%= f.input :player_rating %>
     <%= f.input :player_price %>
 
