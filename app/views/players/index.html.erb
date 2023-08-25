@@ -1,4 +1,14 @@
-﻿
+﻿<div class="row justify-content-center">
+  <% if !@players.first %>
+    <h1>Sorry, there are no player's name, role or position : <%= params[:query].capitalize %></h1>
+  <% elsif params[:query].present? %>
+    <h1>Player's name, role or position : <%= params[:query].split.first.capitalize %></h1>
+  <% else %>
+    <h1>Players around the world</h1>
+  <% end %>
+  <p>Choose your next best player</p>
+</div>
+
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
     <%= form_with url: players_path, method: :get, class: "d-flex" do %>
@@ -12,7 +22,7 @@
   </div>
 </div>
 
-<div class="">
+<div class="row justify-content-center">
   <div class="cards">
 
       <% @players.each do |player| %>

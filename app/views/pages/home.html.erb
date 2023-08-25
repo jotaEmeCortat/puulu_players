@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(<%= cl_image_path ""
+ %>)">
+  <div class="home-container">
+    <h2>PUULUUUUUUUUUUUUU <span id="banner-typed-text"></span></h2>
+    <br>
+    <%= form_tag players_path, class: "index-search", method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control", id: "home-search-bar",
+        placeholder: "Find your new top level player!"
+      %>
+      <%= submit_tag "FIND!", class: "btn btn-index-search", id: "home-search" %>
+    <% end %>
+  </div>
+</div>
