@@ -1,22 +1,22 @@
-﻿<div class="container">
+﻿<div class="booking-show-container">
   <% days = @booking.end_date.day - @booking.start_date.day %>
   <h3>Confirmed: <%= days %> days on <%= @booking.player.player_name %></h3>
-  <div class="">
+  <div class="booking-show-status">
     <p>Booked by <%= @booking.user.team_name %><%= @booking.created_at.strftime(" on %m/%d/%Y") %> <%= @booking.created_at.strftime("at %I:%M%p") %></p>
     <% if @booking.status == 'confirmed' %>
       <p><b>ACCEPTED</b></p>
     <% else %>
-      <p><b>BOOKED!</b></p>
+      <p><b>PENDING!</b></p>
     <% end %>
   </div>
-  <div class="">
-    <div class="">
-      <div class="">
-        <div class="">
+  <div class="booking-show-boxes">
+    <div class="booking-details">
+      <div class="booking-confirm-date-range">
+        <div class="booking-confirm-arrival">
           <p>Start Date:</p>
           <p><%= @booking.start_date.strftime("%m/%d/%Y") %></p>
         </div>
-        <div class="">
+        <div class="booking-confirm-departure">
           <p>Bye Bye Date:</p>
           <p><%= @booking.end_date.strftime("%m/%d/%Y") %></p>
         </div>
@@ -24,20 +24,20 @@
       <div style="margin-top: 25px; margin-bottom:25px">
         <hr>
       </div>
-      <div class="">
+      <div class="booking-show-description">
         <p><%= @booking.player.player_description %></p>
       </div>
       <div style="margin-top: 25px; margin-bottom:25px">
         <hr>
       </div>
-      <div class="">
+      <div class="booking-show-host-info">
         <p>Hosted by <%= @booking.player.user.team_name %></p>
         <p>E-mail: <%= @booking.player.user.email %></p>
       </div>
     </div>
-      <div class="">
+      <div class="booking-costs">
       <h4>Charges:</h4>
-        <div class="">
+        <div class="booking-total-price">
           <p>EUR <%= @booking.player.player_price %> x <%= days %> days</p>
           <% total = @booking.player.player_price * days %>
           <p><b>EUR <%= total %></b></p>
@@ -46,10 +46,10 @@
     </div>
     <% if current_user == @booking.user %>
       <%= link_to "Edit", edit_booking_path(@booking), class: 'btn btn-primary' %>
-      <%= link_to "Cancel", booking_path(@booking), class: 'btn btn-outline-danger',
+      <%= link_to "Delete", booking_path(@booking), class: 'btn btn-outline-danger',
       data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
       <% elsif current_user == @booking.player.user %>
-      <%= link_to "Cancel the booking", booking_path(@booking), class: 'btn btn-outline-danger',
+      <%= link_to "Delete the booking", booking_path(@booking), class: 'btn btn-outline-danger',
       data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
       <% end %>
         <%= link_to "Dashboard", dashboard_path, class: 'btn btn-info' %>

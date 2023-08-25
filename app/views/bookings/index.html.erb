@@ -1,20 +1,20 @@
-﻿<h1 class="">Your bookings</h1>
-<div class="">
+﻿<h1 class="title">Your bookings</h1>
+<div class="cards">
   <% @bookings.each do |booking| %>
-      <div class="">
+      <div class="card_player">
         <%= cl_image_tag booking.player.player_avatar_image %>
-        <div class="">
+        <div class="card_player_infos">
           <div>
             <h2><%= link_to booking.player.player_name, player_bookings_path(booking.player, booking) %></h2>
-            <p>Start Date: <%= booking.start_date %></p>
-            <p>Bye Bye Date: <%= booking.end_date %></p>
+            <p>Start Date: <%= booking.start_date.strftime(" on %m/%d/%Y") %></p>
+            <p>Bye Bye Date: <%= booking.end_date.strftime(" on %m/%d/%Y") %></p>
             <%# <% if policy(booking).destroy? %>
-            <% if booking.destroyed? %>
+            <% if booking.valid? %>
               <%= link_to "CANCEL BOOKING", booking_path(booking),
               data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
             <% end %>
           </div>
-          <h2 class="">Total price: <%= (booking.end_date - booking.start_date) * booking.player.player_price %></h2>
+          <h2 class="price">Total price: <%= (booking.end_date - booking.start_date) * booking.player.player_price %></h2>
         </div>
       </div>
   <% end %>

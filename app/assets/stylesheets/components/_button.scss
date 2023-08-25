@@ -1,36 +1,15 @@
+﻿.button {
+  display: flex;
+  justify-content: center;
+}
+
 .btn {
-  display: block;
-  padding: 1.5rem;
-  border-radius: 2px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: all 0.2s ease 0s;
-  width: 100%;
-  border: 0px;
+  margin: 5px 0px;
+  padding: 5px 5px;
+  font-size: 15px;
 }
 
-.btn-50 {
-  float: right;
-  width: 50%;
-}
-
-.btn-primary {
-  background: #37003c;
-  color: #fff;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background: #080009;
-}
-
-.btn-highlight {
-  background: #e90052;
-  color: #fff;
-}
-
-.btn-highlight:hover,
-.btn-highlight:focus {
-  background: #b60040;
-  color: white;
+.form {
+  padding: auto !important;
+  margin: auto !important;
 }

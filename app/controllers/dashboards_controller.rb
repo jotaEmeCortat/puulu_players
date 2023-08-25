@@ -11,6 +11,4 @@ class DashboardsController < ApplicationController
     # authorize @bookings	# pundit
     # authorize @players	# pundit
   end
-
-  # saisir une méthode private pour les strong params ?
 end
