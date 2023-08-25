@@ -1,7 +1,38 @@
 // Import your components CSS files here.
-@import 'alert';
-@import 'avatar';
-@import 'form_legend_clear';
-@import 'navbar';
-@import 'footer';
-@import 'button';
+@import "alert";
+@import "avatar";
+@import "form_legend_clear";
+@import "navbar";
+
+@import "banner";
+@import "card";
+@import "footer";
+@import "button";
+
+@import "search";
+@import "map";
+
+
+@import "title";
+@import "user_settings";
+
+@import "search_home";
+@import "player_photo";
+@import "player_info";
+
+@import "dashboard_card_product";
+@import "booking_dates";
+@import "row";
+@import "player_card";
+
+@import "card_user";
+@import "card_dashboard";
+@import "card_dashboard_user_profile";
+@import "card_dashboard_bookings_players";
+@import "card_options";
+
+@import "now_button";
+@import "cards_and_map";
+@import "h_line";
+
+@import "booking_form";

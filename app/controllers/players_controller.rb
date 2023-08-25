@@ -6,7 +6,6 @@ class PlayersController < ApplicationController
     if params[:query].present?
       @players = Player.search_player("#{params[:query]}")
     end
-    # @players = Player.geocoded
 
     @markers = @players.map do |player|
       {
@@ -15,32 +14,21 @@ class PlayersController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { player: player })
       }
     end
-
-    # if params[:query].present?
-    #   @players = Player.search_player("#{params[:query]}")
-    #   policy_scope(@players)
-    # else
-    #   @players = policy_scope(Player).order(created_at: :desc)
-    # end
   end
 
   def show
-    # authorize @player # pundit
   end
 
   def edit
-    # authorize @player # pundit
   end
 
   def update
     @player.update(player_params)
-    redirect_to player_path(@player), status: :unprocessable_entity, notice: 'Player was successfully updated.'
-    # authorize @player # pundit
+    redirect_to player_path(@player), notice: 'Player was successfully updated.'
   end
 
   def new
     @player = Player.new
-    # authorize @player # pundit
   end
 
   def create
@@ -55,21 +43,19 @@ class PlayersController < ApplicationController
         @player.longitude = location.longitude
         @player.save!
 
-        redirect_to player_path(@player), status: :unprocessable_entity, notice: 'Player was successfully added.'
+        redirect_to player_path(@player), notice: 'Player was successfully added.'
       else
         flash.now[:alert] = 'Unable to find location for the provided nationality.'
-        render :new
+        render :new, status: :unprocessable_entity
       end
     else
       render :new, status: :unprocessable_entity
     end
-    # authorize @player # pundit
   end
 
   def destroy
     @player.destroy
     redirect_to players_path, status: :see_other, notice: 'Player was successfully deleted.'
-    # authorize @player # pundit
   end
 
   private

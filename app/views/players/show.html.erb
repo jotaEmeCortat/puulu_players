@@ -1,8 +1,8 @@
 ﻿<div class="container">
-  <div class="">
+  <div class="player-card">
       <div class="row">
       <div class="col-6 col-md-4">
-        <div class="">
+        <div class="player-info">
         <h1> <%= @player.player_name %> </h1>
         <h3>Description:</h3>
         <p><%= @player.player_description %></p>
@@ -13,7 +13,7 @@
             Not available
           <% end %>
 
-            <div class ="">
+            <div class ="card-options">
               <%= link_to "Book", new_player_booking_path(@player), class: 'btn btn-primary' %>
             </div>
 
@@ -29,11 +29,11 @@
         </div>
       </div>
         <div class="col-6 col-md-8">
-            <%= cl_image_tag @player.player_avatar_image, class:"" %>
+            <%= cl_image_tag @player.player_avatar_image, class:"player-photo" %>
         </div>
         </div>
     </div>
-        <div class ="">
+        <div class ="card-options">
           <%= link_to "Display all Players", players_path, class: 'btn btn-primary' %>
         </div>
     </div>
